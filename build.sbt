@@ -3,7 +3,7 @@ lazy val commonSettings = Seq(
   organization := "org.jukkauus",
   version := "0.1.0",
   // set the Scala version used for the project
-  scalaVersion := "2.12.1"
+  scalaVersion := "2.13.3"
 )
 
 
@@ -25,7 +25,7 @@ lazy val root = (project in file("."))
     maxErrors := 20,
 
     // increase the time between polling for file changes when using continuous execution
-    pollInterval := 1000,
+    pollInterval := scala.concurrent.duration.FiniteDuration(1000,"milliseconds"),
 
     // append several options to the list of options passed to the Java compiler
     javacOptions ++= Seq("-source", "1.5", "-target", "1.5"),
